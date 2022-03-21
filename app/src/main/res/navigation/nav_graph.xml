@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapsFragment">
+
+    <fragment
+        android:id="@+id/postListFragment"
+        android:name="se.umu.olho0018.mapmarker.fragments.PostListFragment"
+        android:label="PostListFragment" >
+        <action
+            android:id="@+id/action_postListFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_postListFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:popUpTo="@id/mapsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="se.umu.olho0018.mapmarker.fragments.PostDetailFragment"
+        android:label="PostDetailFragment" >
+        <argument android:name="post"
+            app:argType="se.umu.olho0018.mapmarker.models.Post" />
+        <action
+            android:id="@+id/action_postDetailFragment_to_postListFragment"
+            app:destination="@id/postListFragment"
+            app:popUpTo="@id/postListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="originFragment"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_postDetailFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="se.umu.olho0018.mapmarker.fragments.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_postListFragment"
+            app:destination="@id/postListFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_mapsFragment_to_postCreateFragment"
+            app:destination="@id/postCreateFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postCreateFragment"
+        android:name="se.umu.olho0018.mapmarker.fragments.PostEditFragment"
+        android:label="postCreateFragment">
+        <action
+            android:id="@+id/action_postCreateFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:popUpTo="@id/mapsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="latLng"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+    </fragment>
+</navigation>

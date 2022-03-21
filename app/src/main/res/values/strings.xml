@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MapMarker</string>
+    <string name="post_title_label">Edit Title</string>
+    <string name="edit_text_label">Edit Text</string>
+    <string name="save_label">Save</string>
+    <string name="confirm_label">Confirm</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="sort_by_post_date">Sort by post date</string>
+    <string name="sort_by_edit_date">Sort by edit date</string>
+    <string name="sort_by_title">Sort by title</string>
+    <string name="delete_all_posts">Delete all posts</string>
+    <string name="map_tab_string">Map</string>
+    <string name="post_list_tab_string">Posts</string>
+    <string name="delete_post_string">Delete post</string>
+    <string name="delete_post_explanation">"Are you sure you want to delete this post? This action can not be undone!"</string>
+    <string name="confirm_string">Delete post</string>
+
+    <string-array name="spinner_array">
+        <item>Important</item>
+        <item>Work</item>
+        <item>Personal</item>
+        <item>Travel</item>
+        <item>Shopping</item>
+    </string-array>
+</resources>

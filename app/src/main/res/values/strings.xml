@@ -22,4 +22,12 @@
         <item>Travel</item>
         <item>Shopping</item>
     </string-array>
+
+    <string name="none_cat">All posts</string>
+    <string name="important_cat">Important</string>
+    <string name="work_cat">Work</string>
+    <string name="personal_cat">Personal</string>
+    <string name="travel_cat">Travel</string>
+    <string name="shopping_cat">Shopping</string>
+
 </resources>

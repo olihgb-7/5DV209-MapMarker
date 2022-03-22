@@ -14,10 +14,12 @@ private const val CURRENT_TAB_KEY = "currentTab"
 /**
  * @author Oliver Högberg, olho0018
  * Main activity with that handles the different fragments and their corresponding navigation.
- * Application has been tested on emulated Nexus 5-API 24, Nexus 5-API 28 and Pixel 4-API 30
+ * Application has been tested on emulated Nexus 5-API 24, Nexus 5-API 28 and Pixel 4-API 30.
  *
- * NOTE: Works best on emulated Nexus 5-API 24 probably due to it being less
- * intense for the computer to emulate rather than the Pixel 4-API 30.
+ * NOTE:    Depending on the emulator used it might take awhile for the map to load.
+ *          Nexus 5-API 28 seems to have worked well in both testing and installing .apk
+ *          Pixel 4-API 30 works well besides loading time for the map
+ *          Nexus 5-API 24 works well for testing, but for some reason it refuses to install the .apk
  */
 class MainActivity : AppCompatActivity() {
 

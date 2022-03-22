@@ -25,6 +25,7 @@ class PostRepository private constructor(context: Context){
     private val executor = Executors.newSingleThreadExecutor()
 
     fun getAllPosts(): LiveData<List<Post>> = postDao.getAllPosts()
+    fun getCategoryPosts(category: String): LiveData<List<Post>> = postDao.getCategoryPosts(category)
     fun getPost(id: UUID): LiveData<Post> = postDao.getPost(id)
 
     fun addPost(post: Post) {

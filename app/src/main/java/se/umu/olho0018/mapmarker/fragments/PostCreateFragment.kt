@@ -175,7 +175,6 @@ class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
      * Helper function to set spinner text color
      */
     private fun setSpinnerTextColor(view: View?, colorInt: Int) {
-
         if (view != null && view is TextView) {
             (view).setTextColor(requireContext().getColor(colorInt))
         }

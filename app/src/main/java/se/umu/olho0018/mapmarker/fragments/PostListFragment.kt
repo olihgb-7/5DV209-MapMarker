@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.maps.model.LatLng
 import se.umu.olho0018.mapmarker.MainActivity
 import se.umu.olho0018.mapmarker.R
 import se.umu.olho0018.mapmarker.adapters.PostListAdapter

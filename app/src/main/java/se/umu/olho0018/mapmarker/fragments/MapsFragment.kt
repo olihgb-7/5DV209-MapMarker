@@ -3,8 +3,10 @@ package se.umu.olho0018.mapmarker.fragments
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -53,21 +55,22 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissions ->
         when {
-            permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, true) -> {
+            permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true -> {
                 permissionsGranted = true
                 checkFirstTimeAppUse()      // Display welcome message on first time use
                 updateMapUI()               // Update map UI
                 moveCameraLastLocation()    // Move map camera to current location
             }
-            permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, true) -> {
+            permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true -> {
                 permissionsGranted = true
                 checkFirstTimeAppUse()      // Display welcome message on first time use
                 updateMapUI()               // Update map UI
                 moveCameraLastLocation()    // Move map camera to current location
             }
-
         }
     }
+
+    private var welcomeDialog: Dialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -278,7 +281,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
      * is using the application
      */
     private fun checkFirstTimeAppUse() {
-
         // Get shared preferences
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         sharedPreferences.apply {
@@ -298,7 +300,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
      */
     private fun welcomeDialog() {
 
-        AlertDialog.Builder(context)
+        welcomeDialog = AlertDialog.Builder(context)
             .setTitle("Welcome to MapMarker")
             .setMessage("Lets create your first post!")
             .setPositiveButton(R.string.confirm_label) { _, _ ->

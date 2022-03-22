@@ -19,5 +19,6 @@ class Post (
     var longitude: Double = 0.0,
     var latitude: Double = 0.0,
     var category: String = "",
-    var categoryColor: String = ""
+    var categoryColor: String = "",
+    var categoryColorCard: String = ""
 ) : Parcelable

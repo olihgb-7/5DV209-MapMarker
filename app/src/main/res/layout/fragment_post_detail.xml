@@ -12,14 +12,20 @@
 
         <TextView
             android:id="@+id/detail_post_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,32 +33,27 @@
             android:id="@+id/detail_post_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:text="TextView"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/detail_post_title"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_post_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/detail_post_category"
+            app:layout_constraintTop_toTopOf="@+id/detail_post_category" />
+
+        <TextView
+            android:id="@+id/detail_post_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/detail_post_date"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_post_title" />
-
-        <TextView
-            android:id="@+id/post_latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/detail_post_date"
-            app:layout_constraintTop_toBottomOf="@+id/detail_post_date" />
-
-        <TextView
-            android:id="@+id/post_longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/post_latitude"
-            app:layout_constraintStart_toEndOf="@+id/post_latitude"
-            app:layout_constraintTop_toTopOf="@+id/post_latitude" />
 
         <View
             android:id="@+id/divider3"
@@ -64,7 +65,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_latitude" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_post_category" />
 
         <ScrollView
             android:layout_width="0dp"

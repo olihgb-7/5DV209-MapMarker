@@ -10,10 +10,17 @@
     <color name="primary">#2A353C</color>
     <color name="primaryVariant">#161C20</color>
 
-    <color name="color_important">#FF8A80</color>
-    <color name="color_work">#EA80FC</color>
-    <color name="color_personal">#8C9EFF</color>
-    <color name="color_travel">#CCFF90</color>
-    <color name="color_shopping">#FFE57F</color>
+    <color name="color_important_card">#FF8A80</color>
+    <color name="color_work_card">#EA80FC</color>
+    <color name="color_personal_card">#8C9EFF</color>
+    <color name="color_travel_card">#CCFF90</color>
+    <color name="color_shopping_card">#FFE57F</color>
+    <color name="color_default_card">#FFFFFFFF</color>
+
+    <color name="color_important">#E53935</color>
+    <color name="color_work">#8E24AA</color>
+    <color name="color_personal">#3949AB</color>
+    <color name="color_travel">#43A047</color>
+    <color name="color_shopping">#FFB300</color>
     <color name="color_default">#FFFFFFFF</color>
 </resources>

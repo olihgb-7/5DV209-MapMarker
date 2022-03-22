@@ -13,6 +13,7 @@ import se.umu.olho0018.mapmarker.R
 import se.umu.olho0018.mapmarker.fragments.PostListFragment
 import se.umu.olho0018.mapmarker.fragments.PostListFragmentDirections
 import se.umu.olho0018.mapmarker.models.Post
+import java.text.SimpleDateFormat
 
 /**
  * @author Oliver Högberg, olho0018
@@ -38,7 +39,7 @@ class PostListHolder(view: View, var context: Context) : RecyclerView.ViewHolder
     fun bind(post: Post) {
         this.post = post
         postTitle.text = this.post.title
-        postDate.text = this.post.postDate.toString()
+        postDate.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(this.post.postDate)
         postDescription.text = this.post.description
         setCardColor(post)
     }
@@ -62,7 +63,7 @@ class PostListHolder(view: View, var context: Context) : RecyclerView.ViewHolder
      * @param post The post of which the CardView background color should change
      */
     private fun setCardColor(post: Post) {
-        postCardView.setCardBackgroundColor(Color.parseColor("#${post.categoryColor}"))
+        postCardView.setCardBackgroundColor(Color.parseColor("#${post.categoryColorCard}"))
     }
 }
 

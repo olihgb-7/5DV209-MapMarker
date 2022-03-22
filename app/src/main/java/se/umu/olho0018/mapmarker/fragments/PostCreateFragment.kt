@@ -16,6 +16,7 @@ import se.umu.olho0018.mapmarker.viewmodels.PostCreateViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 private const val TAG = "PostCreateFragment"
 
 /**
@@ -35,6 +36,7 @@ class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var category: String
     private lateinit var categoryColor: String
+    private lateinit var categoryColorCard: String
 
     private val postEditViewModel: PostCreateViewModel by lazy {
         ViewModelProvider(this).get(PostCreateViewModel::class.java)
@@ -63,20 +65,39 @@ class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         /* Sets the post category color to selected item color.
          * Uses helper function to convert color ints to hex strings
+         * and to set spinner text color.
          */
-        categoryColor = when (category) {
-            requireContext().resources.getStringArray(R.array.spinner_array)[0] ->
-                convertColorIntToHexString(R.color.color_important)
-            requireContext().resources.getStringArray(R.array.spinner_array)[1] ->
-                convertColorIntToHexString(R.color.color_work)
-            requireContext().resources.getStringArray(R.array.spinner_array)[2] ->
-                convertColorIntToHexString(R.color.color_personal)
-            requireContext().resources.getStringArray(R.array.spinner_array)[3] ->
-                convertColorIntToHexString(R.color.color_travel)
-            requireContext().resources.getStringArray(R.array.spinner_array)[4] ->
-                convertColorIntToHexString(R.color.color_shopping)
-            else ->
-                convertColorIntToHexString(R.color.color_default)
+        when (category) {
+            requireContext().resources.getStringArray(R.array.spinner_array)[0] -> {
+                categoryColor = convertColorIntToHexString(R.color.color_important)
+                categoryColorCard = convertColorIntToHexString(R.color.color_important_card)
+                setSpinnerTextColor(view, R.color.color_important)
+            }
+            requireContext().resources.getStringArray(R.array.spinner_array)[1] -> {
+                categoryColor = convertColorIntToHexString(R.color.color_work)
+                categoryColorCard = convertColorIntToHexString(R.color.color_work_card)
+                setSpinnerTextColor(view, R.color.color_work)
+            }
+            requireContext().resources.getStringArray(R.array.spinner_array)[2] -> {
+                categoryColor = convertColorIntToHexString(R.color.color_personal)
+                categoryColorCard = convertColorIntToHexString(R.color.color_personal_card)
+                setSpinnerTextColor(view, R.color.color_personal)
+            }
+            requireContext().resources.getStringArray(R.array.spinner_array)[3] -> {
+                categoryColor = convertColorIntToHexString(R.color.color_travel)
+                categoryColorCard = convertColorIntToHexString(R.color.color_travel_card)
+                setSpinnerTextColor(view, R.color.color_travel)
+            }
+            requireContext().resources.getStringArray(R.array.spinner_array)[4] -> {
+                categoryColor = convertColorIntToHexString(R.color.color_shopping)
+                categoryColorCard = convertColorIntToHexString(R.color.color_shopping_card)
+                setSpinnerTextColor(view, R.color.color_shopping)
+            }
+            else -> {
+                categoryColor = convertColorIntToHexString(R.color.color_default)
+                categoryColorCard = convertColorIntToHexString(R.color.color_default_card)
+                setSpinnerTextColor(view, R.color.color_default)
+            }
         }
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -113,7 +134,8 @@ class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 latitude = args.latLng.latitude,
                 longitude = args.latLng.longitude,
                 category = this.category,
-                categoryColor = this.categoryColor
+                categoryColor = this.categoryColor,
+                categoryColorCard = this.categoryColorCard
             )
             postEditViewModel.addPost(post)
 
@@ -147,5 +169,15 @@ class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
      */
     private fun convertColorIntToHexString(colorInt: Int): String {
         return requireContext().getColor(colorInt).toUInt().toString(16)
+    }
+
+    /**
+     * Helper function to set spinner text color
+     */
+    private fun setSpinnerTextColor(view: View?, colorInt: Int) {
+
+        if (view != null && view is TextView) {
+            (view).setTextColor(requireContext().getColor(colorInt))
+        }
     }
 }

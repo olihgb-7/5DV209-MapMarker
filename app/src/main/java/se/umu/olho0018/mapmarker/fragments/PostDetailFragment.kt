@@ -1,6 +1,7 @@
 package se.umu.olho0018.mapmarker.fragments
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
@@ -28,9 +29,8 @@ class PostDetailFragment : Fragment() {
     }
 
     private lateinit var titleText: TextView
+    private lateinit var postCategory: TextView
     private lateinit var postDate: TextView
-    private lateinit var postLatitude: TextView
-    private lateinit var postLongitude: TextView
     private lateinit var postDescription: TextView
 
     override fun onCreateView(
@@ -95,15 +95,14 @@ class PostDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         titleText = view.findViewById(R.id.detail_post_title)
+        postCategory = view.findViewById(R.id.detail_post_category)
         postDate = view.findViewById(R.id.detail_post_date)
-        postLatitude = view.findViewById(R.id.post_latitude)
-        postLongitude = view.findViewById(R.id.post_longitude)
         postDescription = view.findViewById(R.id.detail_post_description)
 
         titleText.text = args.post.title
+        postCategory.text = args.post.category
+        postCategory.setTextColor(Color.parseColor("#${args.post.categoryColor}"))
         postDate.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(args.post.postDate)
-        postLatitude.text = "Lat: ${args.post.latitude.toString()}"
-        postLongitude.text = "Lng: ${args.post.longitude.toString()}"
         postDescription.text = args.post.description
     }
 }

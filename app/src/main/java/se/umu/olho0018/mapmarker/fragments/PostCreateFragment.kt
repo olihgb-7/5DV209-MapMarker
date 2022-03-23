@@ -23,9 +23,9 @@ private const val TAG = "PostCreateFragment"
  * @author Oliver Högberg, olho0018
  * Post Create fragment to handle a creation of new posts
  */
-class PostEditFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class PostCreateFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
-    private val args: PostEditFragmentArgs by navArgs()
+    private val args: PostCreateFragmentArgs by navArgs()
 
     private lateinit var titleField: EditText
     private lateinit var dateTextView: TextView

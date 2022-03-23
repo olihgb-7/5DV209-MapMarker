@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/postCreateFragment"
-        android:name="se.umu.olho0018.mapmarker.fragments.PostEditFragment"
+        android:name="se.umu.olho0018.mapmarker.fragments.PostCreateFragment"
         android:label="postCreateFragment">
         <action
             android:id="@+id/action_postCreateFragment_to_mapsFragment"

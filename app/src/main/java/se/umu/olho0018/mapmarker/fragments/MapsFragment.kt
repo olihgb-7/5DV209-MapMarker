@@ -7,6 +7,7 @@ import android.app.Dialog
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -249,6 +250,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                     }
                 }
             }
+        }
+        else {
+            Toast.makeText(context, R.string.allow_location_explanation, Toast.LENGTH_SHORT).show()
         }
     }
 

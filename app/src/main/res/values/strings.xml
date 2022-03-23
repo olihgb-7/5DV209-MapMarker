@@ -14,6 +14,7 @@
     <string name="delete_post_string">Delete post</string>
     <string name="delete_post_explanation">"Are you sure you want to delete this post? This action can not be undone!"</string>
     <string name="confirm_string">Delete post</string>
+    <string name="allow_location_explanation">"Allow location permissions to be able to create new posts!"</string>
 
     <string-array name="spinner_array">
         <item>Important</item>
